@@ -1,4 +1,4 @@
-const ComplexQuestion = require("../ComplexQuestions/ComplexQuestion");
+const ComplexQuestion = require("../ComplexQuestion/ComplexQuestion");
 const QuestionFactory = require("./QuestionFactory");
 const TestBuilder = require("../Design Patterns/TestBuilder");
 
