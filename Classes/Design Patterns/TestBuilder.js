@@ -1,4 +1,4 @@
-const Test = require("../ComplexQuestions/Test");
+const Test = require("../ComplexQuestion/Test");
 
 module.exports = class TestBuilder {
   constructor() {
