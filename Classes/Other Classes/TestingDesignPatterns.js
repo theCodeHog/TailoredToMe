@@ -1,10 +1,12 @@
 const ComplexQuestionBuilder = require("../Design Patterns/ComplexQuestionBuilder");
 const RenderQuestionAdapter = require("../Design Patterns/RenderQuestionAdapter");
+const TestFacade = require("../Design Patterns/TestFacade");
 
 module.exports = class TestingDesignPatterns {
   constructor() {
     this.testingComplexQuestionBuilder(); //factory & builder
     this.testingRenderQuestionAdapter(); //adapter
+    this.testingTestFacade(); //facade
   }
 
   complexQuestion1 = {};
@@ -82,5 +84,15 @@ module.exports = class TestingDesignPatterns {
     this.complexQuestion1.questions.map((question) => {
       RenderQuestionAdapter.render(question);
     });
+  }
+
+  testingTestFacade() {
+    console.log("------------------------------------------------------------");
+    console.log(
+      "USING THE TESTFACADE TO HIDE COMPLEXITY IN ORDER TO SIMPLY RENDER " +
+        "OUR TESTS INSIDE THE COMPLEX QUESTION WE JUST CREATED"
+    );
+    console.log("------------------------------------------------------------");
+    TestFacade.render(this.complexQuestion1.tests);
   }
 };
