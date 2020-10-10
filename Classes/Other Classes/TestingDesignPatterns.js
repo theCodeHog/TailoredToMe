@@ -1,12 +1,15 @@
 const ComplexQuestionBuilder = require("../Design Patterns/ComplexQuestionBuilder");
 const RenderQuestionAdapter = require("../Design Patterns/RenderQuestionAdapter");
 const TestFacade = require("../Design Patterns/TestFacade");
+const SubscriptionHandler = require("../Design Patterns/SubscriptionHandler");
+const Subscriber = require("../Other Classes/Subscriber");
 
 module.exports = class TestingDesignPatterns {
   constructor() {
     this.testingComplexQuestionBuilder(); //factory & builder
     this.testingRenderQuestionAdapter(); //adapter
     this.testingTestFacade(); //facade
+    this.testingSubscriptionHandler(); //observer
   }
 
   complexQuestion1 = {};
@@ -94,5 +97,34 @@ module.exports = class TestingDesignPatterns {
     );
     console.log("------------------------------------------------------------");
     TestFacade.render(this.complexQuestion1.tests);
+  }
+
+  testingSubscriptionHandler() {
+    console.log("------------------------------------------------------------");
+    console.log(
+      "TESTING THE SUBSCRIPTIONHANDLER TO MAKE SURE EACH SUBSCRIBER " +
+        "GETS THE RIGHT NOTIFICATIONS"
+    );
+    console.log("------------------------------------------------------------");
+
+    //Creating some subscribers to test with
+    let Marcus = new Subscriber("Marcus", "m@something.com", [
+      "Economics",
+      "Health",
+      "Technology",
+    ]);
+    let Per = new Subscriber("Per", "p@onenet.com", ["Technology"]);
+    let Hassan = new Subscriber("Hassan", "h@outlook.com", ["Health"]);
+
+    SubscriptionHandler.addSubscriber(Marcus);
+    SubscriptionHandler.addSubscriber(Per);
+    SubscriptionHandler.addSubscriber(Hassan);
+
+    SubscriptionHandler.notify(
+      this.complexQuestion1,
+      "Since you are interested in the category " +
+        this.complexQuestion1.category +
+        " , we are now sending you a new complex question we added!"
+    );
   }
 };
