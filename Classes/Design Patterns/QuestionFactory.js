@@ -1,6 +1,6 @@
-const DropdownQuestion = require("../ComplexQuestion/Questions/DropdownQuestion");
-const MultipleChoiceQuestion = require("../ComplexQuestion/Questions/MultipleChoiceQuestion");
-const SingleChoiceQuestion = require("../ComplexQuestion/Questions/SingleChoiceQuestion");
+const DropdownQuestion = require("../ComplexQuestion/Question/DropdownQuestion");
+const MultipleChoiceQuestion = require("../ComplexQuestion/Question/MultipleChoiceQuestion");
+const SingleChoiceQuestion = require("../ComplexQuestion/Question/SingleChoiceQuestion");
 
 module.exports = class QuestionFactory {
   static createQuestion(name, answers) {
