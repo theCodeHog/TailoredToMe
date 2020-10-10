@@ -1,8 +1,10 @@
 const ComplexQuestionBuilder = require("../Design Patterns/ComplexQuestionBuilder");
+const RenderQuestionAdapter = require("../Design Patterns/RenderQuestionAdapter");
 
 module.exports = class TestingDesignPatterns {
   constructor() {
     this.testingComplexQuestionBuilder(); //factory & builder
+    this.testingRenderQuestionAdapter(); //adapter
   }
 
   complexQuestion1 = {};
@@ -68,5 +70,17 @@ module.exports = class TestingDesignPatterns {
       ])
       .createComplexQuestion();
     console.log(this.complexQuestion1);
+  }
+
+  testingRenderQuestionAdapter() {
+    console.log("------------------------------------------------------------");
+    console.log(
+      "USING THE RENDERQUESTIONADAPTER DESIGN PATTERN TO RENDER OUR " +
+        "DIFFERENT QUESTIONS INSIDE THE COMPLEX QUESTION WE JUST CREATED"
+    );
+    console.log("------------------------------------------------------------");
+    this.complexQuestion1.questions.map((question) => {
+      RenderQuestionAdapter.render(question);
+    });
   }
 };
